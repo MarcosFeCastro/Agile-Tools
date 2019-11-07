@@ -1,0 +1,23 @@
+<app-panel></app-panel>
+
+<div class="content">
+  <h1>Projetos</h1>
+
+  <div>
+    <form [formGroup]="projectForm" novalidate class="project-form">
+      <input formControlName="name" type="text" placeholder="Nome" id="input-title" [ngClass]="{ 'invalid' : submitted && hasErrorForm('name') }" autocomplete="off">
+      <input formControlName="content" type="text" placeholder="content" id="input-description" autocomplete="off">
+      <button type="submit" (click)="onSubmit()">Criar projeto</button>
+    </form>
+  </div>
+
+  <div class="projects">
+    <div class="project" *ngFor="let project of projects">
+      <button (click)="deleteProject( project )" id="delete-btn">Apagar</button>
+      <h2>{{project.name}}</h2>
+      <p>{{project.content}}</p>
+      <button (click)="openProject( project )" id="delete-btn">Abrir</button>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,47 @@
+
+$color-black: #393e46;
+$color-red: #f33535;
+$color-green: #17b978;
+$color-green-2: #7bc74d;
+$color-yellow: #f7b633;
+$color-yellow-2: #ffd96a;
+$color-white: #fff;
+$color-white-2: #eeeeee;
+
+.content {
+    margin-left: 150px; margin-top: 50px;
+    .project-form {
+        width: 700px; margin: 0 auto; padding: 10px; background-color: #393e46;
+        #input-title {
+            width: 680px; padding: 10px; border: 1px solid $color-white;
+            &:focus { box-shadow: 0 0 0 0; border: 1px solid $color-white; outline: 0; }
+            &.invalid {
+                border: 1px solid $color-red;
+            }
+        }
+        #input-description {
+            width: 680px; padding: 10px; border: 1px solid $color-white;
+            &:focus { box-shadow: 0 0 0 0; border: 1px solid $color-white; outline: 0; }
+            &.invalid {
+                border: 1px solid $color-red;
+            }
+        }
+        button {
+            border: none; padding: 10px; cursor: pointer;
+        }
+        @media ( max-width: 699px ) {
+            
+        }
+    }
+    .projects {
+        margin: 60px 100px 0px 100px;
+        .project {
+            width: 260px; min-height: 120px; float: left; margin: 0px 10px; padding: 10px;
+            h2 { margin: 0px; margin-bottom: 10px; }
+            p { margin: 0px; }
+            #delete-btn {
+                float: right;
+            }
+        }
+    }
+}

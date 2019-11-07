@@ -1,0 +1,35 @@
+<app-panel></app-panel>
+
+<div class="content">
+  <h1>Notas</h1>
+
+  <div>
+    <form [formGroup]="noteForm" novalidate class="note-form" [ngClass]="notecard">
+      <input formControlName="title" type="text" placeholder="Título" id="input-title" [ngClass]="{ 'invalid' : submitted && hasErrorForm('title') }" autocomplete="off">
+      <input formControlName="content" type="text" placeholder="Anotação" id="input-content" [ngClass]="{ 'invalid' : submitted && hasErrorForm('content') }" autocomplete="off">
+      <div class="btns-color">
+        <div class="btn-white" [ngClass]="{ 'selected' : checkColor() == 'notecard-white' }" (click)="setNoteColor( 'notecard-white' )"></div>
+        <div class="btn-red" [ngClass]="{ 'selected' : checkColor() == 'notecard-red' }" (click)="setNoteColor( 'notecard-red' )"></div>
+        <div class="btn-green" [ngClass]="{ 'selected' : checkColor() == 'notecard-green' }" (click)="setNoteColor( 'notecard-green' )"></div>
+        <div class="btn-yellow" [ngClass]="{ 'selected' : checkColor() == 'notecard-yellow' }" (click)="setNoteColor( 'notecard-yellow' )"></div>
+        <div class="btn-black" [ngClass]="{ 'selected' : checkColor() == 'notecard-black' }" (click)="setNoteColor( 'notecard-black' )"></div>
+      </div>
+      <div class="btns">
+        <button type="submit" (click)="onSubmit()">Salvar</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="notes">
+    <div class="note" *ngFor="let note of notes">
+      <div class="note-btns">
+        <a (click)="deleteNote( note )" id="delete-btn">Apagar</a>
+      </div>
+      <div class="note-content {{note.color}}">
+        <h2>{{note.title}}</h2>
+        <p>{{note.content}}</p>
+      </div>
+    </div>
+  </div>
+
+</div>

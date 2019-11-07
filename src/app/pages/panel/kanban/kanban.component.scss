@@ -1,0 +1,105 @@
+
+$color-black: #393e46;
+$color-red: #f33535;
+$color-green: #17b978;
+$color-green-2: #7bc74d;
+$color-yellow: #f7b633;
+$color-yellow-2: #ffd96a;
+$color-white: #fff;
+$color-white-2: #eeeeee;
+
+.content {
+    margin-left: 150px; margin-top: 50px;
+    .card-form {
+        width: 700px; min-height: 75px; margin: 0 auto; padding: 10px; background-color: $color-black;
+        #input-content {
+            width: 680px; padding: 10px; border: 1px solid $color-white;
+            &:focus { box-shadow: 0 0 0 0; border: 1px solid $color-white; outline: 0; }
+            &.invalid {
+                border: 1px solid $color-red;
+            }
+        }
+        .btns-color {
+            width: 50%; float: left;
+            div {
+                float: left; width: 22px; height: 22px; margin: 10px 8px 0px 0px; border: 2px solid $color-white; border-radius: 20px; cursor: pointer;
+            }
+            .btn-white {
+                background-color: $color-white-2;
+            }
+            .btn-red {
+                background-color: $color-red;
+            }
+            .btn-green {
+                background-color: $color-green;
+            }
+            .btn-yellow {
+                background-color: $color-yellow;
+            }
+            .btn-black {
+                background-color: $color-black;
+            }
+            .selected {
+                border: 2px solid $color-red;
+            }
+        }
+        .btns {
+            width: 50%; float: left; text-align: right;
+            button {
+                border: none; padding: 10px 15px; margin: 5px -2px 0px 0px; cursor: pointer; font-weight: bold;
+            }
+        }
+        @media ( max-width: 699px ) {
+            
+        }
+    }
+    .kanban {
+        width: 100%; margin-top: 60px;
+        background-color: $color-white-2;
+        .col {
+            width: 24.9%; min-height: 80vh; border-right: 1px solid $color-black; float: left;
+            &:last-child {
+                border: none;
+            }
+            h1 {
+                text-align: center; margin: 0px; padding: 10px; border-bottom: 1px solid $color-black;
+            }
+            .cards {
+                position: inherit; float: left; width: 90%; padding: 15px; margin: 5px 0px;
+                .card-btns {
+                    text-align: right; margin-bottom: 5px;
+                    a {
+                        display: inline; padding: 6px 10px; cursor: pointer;
+                        &:hover {
+                            background-color: $color-green; color: $color-white;
+                        }
+                    }
+                    .btn-delete {
+                        background-color: $color-red; color: $color-white;
+                        &:hover {
+                            background-color: $color-red;
+                        }
+                    }
+                }
+                .card-content {
+                    padding: 15px;
+                }
+                .card-black {
+                    background-color: $color-black; color: $color-white;
+                }
+                .card-red {
+                    background-color: $color-red; color: $color-white;
+                }
+                .card-green {
+                    background-color: $color-green; color: $color-white;
+                }
+                .card-yellow {
+                    background-color: $color-yellow; color: $color-white;
+                }
+                .card-white {
+                    background-color: $color-white-2;
+                }
+            }
+        }
+    }
+}

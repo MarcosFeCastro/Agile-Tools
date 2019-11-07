@@ -1,0 +1,10 @@
+<div class="background">
+  <div class="content">
+    <h1>Bem Vindo!</h1>
+    <p>Qual seu nome?</p>
+    <form [formGroup]="form" novalidate>
+      <input formControlName="name" type="text" placeholder="Nome" [ngClass]="{ 'invalid' : submitted && hasErrorForm('name') }">
+      <button type="submit" (click)="onSubmit()">Entrar</button>
+    </form>
+  </div>
+</div>

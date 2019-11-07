@@ -132,5 +132,10 @@
       }
     }
   },
-  "defaultProject": "agile"
+  "defaultProject": "agile",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

@@ -1,0 +1,98 @@
+<app-panel></app-panel>
+
+<div class="content">
+  <h1>{{ project?.name }}</h1>
+  <div>
+    <form [formGroup]="cardForm" novalidate class="card-form">
+      <input formControlName="content" type="text" placeholder="Tarefa" id="input-content" [ngClass]="{ 'invalid' : submitted && hasErrorForm('content') }" autocomplete="off">
+      <div class="btns-color">
+        <div class="btn-white" [ngClass]="{ 'selected' : checkColor() == 'card-white' }" (click)="setNoteColor( 'card-white' )"></div>
+        <div class="btn-red" [ngClass]="{ 'selected' : checkColor() == 'card-red' }" (click)="setNoteColor( 'card-red' )"></div>
+        <div class="btn-green" [ngClass]="{ 'selected' : checkColor() == 'card-green' }" (click)="setNoteColor( 'card-green' )"></div>
+        <div class="btn-yellow" [ngClass]="{ 'selected' : checkColor() == 'card-yellow' }" (click)="setNoteColor( 'card-yellow' )"></div>
+        <div class="btn-black" [ngClass]="{ 'selected' : checkColor() == 'card-black' }" (click)="setNoteColor( 'card-black' )"></div>
+      </div>
+      <div class="btns">
+        <button type="submit" (click)="onSubmit()">Salvar</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="kanban">
+    <div class="col" id="todo">
+      <h1>Fazer</h1>
+      <div class="cards" *ngFor="let card of project.cards">
+        <div *ngIf="card.status == 'todo'">
+          <div class="card-btns">
+            <a (click)="updateCard( card, 'doing' )">Fazendo</a>
+            <a (click)="updateCard( card, 'testing' )">Testar</a>
+            <a (click)="updateCard( card, 'done' )">Feito</a>
+            <a class="btn-delete" (click)="deleteCard( card )">Apagar</a>
+          </div>
+          <div class="card-content {{card.color}}">
+            {{ card.content }} <br>
+            {{ card.deadline | date: 'dd/MM/yyyy' }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col" id="doing">
+      <h1>Fazendo</h1>
+      <div class="cards">
+        <div class="cards" *ngFor="let card of project.cards">
+          <div *ngIf="card.status == 'doing'">
+            <div class="card-btns">
+              <a (click)="updateCard( card, 'todo' )">Fazer</a>
+              <a (click)="updateCard( card, 'testing' )">Testar</a>
+              <a (click)="updateCard( card, 'done' )">Feito</a>
+              <a class="btn-delete" (click)="deleteCard( card )">Apagar</a>
+            </div>
+            <div class="card-content {{card.color}}">
+              {{ card.content }} <br>
+              {{ card.deadline | date: 'dd/MM/yyyy' }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col" id="testing">
+      <h1>Testar</h1>
+      <div class="cards">
+        <div class="cards" *ngFor="let card of project.cards">
+          <div *ngIf="card.status == 'testing'">
+            <div class="card-btns">
+              <a (click)="updateCard( card, 'todo' )">Fazer</a>
+              <a (click)="updateCard( card, 'doing' )">Fazendo</a>
+              <a (click)="updateCard( card, 'done' )">Feito</a>
+              <a class="btn-delete" (click)="deleteCard( card )">Apagar</a>
+            </div>
+            <div class="card-content {{card.color}}">
+              {{ card.content }} <br>
+              {{ card.deadline | date: 'dd/MM/yyyy' }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col" id="donne">
+      <h1>Feito</h1>
+      <div class="cards">
+        <div class="cards" *ngFor="let card of project.cards">
+          <div *ngIf="card.status == 'done'">
+            <div class="card-btns">
+              <a (click)="updateCard( card, 'todo' )">Fazer</a>
+              <a (click)="updateCard( card, 'doing' )">Fazendo</a>
+              <a (click)="updateCard( card, 'testing' )">Testar</a>
+              <a class="btn-delete" (click)="deleteCard( card )">Apagar</a>
+            </div>
+            <div class="card-content {{card.color}}">
+              {{ card.content }} <br>
+              {{ card.deadline | date: 'dd/MM/yyyy' }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
